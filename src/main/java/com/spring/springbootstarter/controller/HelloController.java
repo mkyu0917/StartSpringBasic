@@ -15,7 +15,7 @@ public class HelloController {
         model.addAttribute("data","아리!!");
 
         return "hello";
-    }
+    }  
 
     @GetMapping("/start-mvc")
     public String startMvc(@RequestParam("name") String name, Model model){
