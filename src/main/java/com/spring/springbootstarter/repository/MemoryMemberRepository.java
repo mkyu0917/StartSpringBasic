@@ -37,4 +37,9 @@ public class MemoryMemberRepository implements MemberRepository{
         //다찾으려면 Store의 모든 값을 arrayList에 넣어서 전달.
         return new ArrayList<>(store.values());
     }
+
+    public void clearStore(){
+        store.clear();
+    }
+
 }
