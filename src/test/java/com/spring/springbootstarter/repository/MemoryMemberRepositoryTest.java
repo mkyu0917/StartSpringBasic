@@ -4,6 +4,7 @@ import com.spring.springbootstarter.domain.Member;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
+@Repository
 class MemoryMemberRepositoryTest {
     //전체테스트를 실행시키면 순서는 고려하지않은채로 실행이된다.
     //MemberRepository는 interface MemoryMemberRepository 보다 상위객체
