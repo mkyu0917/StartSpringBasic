@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service //스프링컨테이너에 등록하고 서비스 레이어에 서비스라고 인식시켜줌
+
 public class MemberService {
 
     private final MemberRepository memberRepository;
-    //마찬가지로 서비스 객체가 생성될때 Repository를 주입해줌
-    @Autowired
+
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
