@@ -14,10 +14,10 @@ import javax.sql.DataSource;
 @Configuration //설정클래스라고 명시해주는 annotation
 public class springConfig {
 
-
-    private DataSource dataSource;
-
     @Autowired
+   private final DataSource dataSource;
+
+
     public springConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }
