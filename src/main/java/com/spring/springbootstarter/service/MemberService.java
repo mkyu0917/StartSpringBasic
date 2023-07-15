@@ -5,11 +5,13 @@ import com.spring.springbootstarter.repository.MemberRepository;
 import com.spring.springbootstarter.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-
+//데이터를 저장하거나 변경할땐 항상 Transactional안에서 실행되어야 한다.
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -22,10 +24,20 @@ public class MemberService {
      * 회원가입
      */
     public Long join(Member member){
-        //같은 이름이 있는 중복 회원X
-        validateDuplicateMember(member);
-        memberRepository.save(member);
-        return member.getId();
+
+        long start = System.currentTimeMillis();
+
+        try{
+            //같은 이름이 있는 중복 회원X
+            validateDuplicateMember(member);
+            memberRepository.save(member);
+            return member.getId();
+        }finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join = " + timeMs + "Ms");
+
+        }
     }
 
 
@@ -41,7 +53,14 @@ public class MemberService {
      * 전체 회원 조회
      */
     public List<Member> findMembers() {
-        return memberRepository.findAll();
+        long start = System.currentTimeMillis();
+        try{
+            return memberRepository.findAll();
+        }finally{
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("findAll = " + timeMs + "ms");
+        }
     }
 
     /**
@@ -50,5 +69,4 @@ public class MemberService {
     public Optional<Member> findOne(Long memberid){
         return memberRepository.findById(memberid);
     }
-
 }

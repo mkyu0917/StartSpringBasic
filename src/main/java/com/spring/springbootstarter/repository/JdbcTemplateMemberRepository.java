@@ -20,7 +20,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public JdbcTemplateMemberRepository(DataSource dataSource) {
+    public   JdbcTemplateMemberRepository(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
