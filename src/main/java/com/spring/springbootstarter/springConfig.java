@@ -1,5 +1,6 @@
 package com.spring.springbootstarter;
 
+import com.spring.springbootstarter.aop.TimeTraceAop;
 import com.spring.springbootstarter.repository.*;
 import com.spring.springbootstarter.service.MemberService;
 import jakarta.persistence.EntityManager;

@@ -20,7 +20,9 @@ public class MemberController {
     //컨트롤러가 객체로 생성될때 @Autowird 어노테이션이 있으면 스프링컨테이너에 빈으로 등록된것을 주입해줌 (Dependency Injection)
     @Autowired
     public MemberController(MemberService memberService) {
+
         this.memberService = memberService;
+        System.out.println("memberService = " + memberService.getClass());
     }
 
     //컨트롤러가 뷰화면의 주소를 리턴하면 리턴값의 위치에서 파일을 찾아 반환함
